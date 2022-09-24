@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este projeto esta sendo desenvolvido em live no meu canal https://twitch.tv/progshowzim
 
-Things you may want to cover:
+## Fluxos do sistema:
+https://whimsical.com/e-commerce-showzim-LzJQQLaeREuubiZSkCMmC5
 
-* Ruby version
+## Templates
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+https://startbootstrap.com/template/shop-homepage
+https://startbootstrap.com/template/shop-item
+https://colorlib.com/wp/template/login-form-11/
