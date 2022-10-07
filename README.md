@@ -10,3 +10,5 @@ https://whimsical.com/e-commerce-showzim-LzJQQLaeREuubiZSkCMmC5
 https://startbootstrap.com/template/shop-homepage
 https://startbootstrap.com/template/shop-item
 https://colorlib.com/wp/template/login-form-11/
+
+# modelagem
