@@ -1,0 +1,25 @@
+<%= simple_form_for(resource, html: { class: 'login-form'}, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                label: false,
+                placeholder: 'E-mail',
+                input_html: { autocomplete: "email" } %>
+    <%= f.input :password,
+                required: false,
+                label: false,
+                placeholder: 'Senha',
+                input_html: { autocomplete: "current-password" } %>
+  </div>
+  <%= render 'devise/shared/button_submit', f: f, text: 'Entrar' %>
+
+  <div class="form-group d-md-flex">
+    <div class="w-50">
+      <%= f.input :remember_me, as: :boolean, input_html: { class: 'remember' } if devise_mapping.rememberable? %>
+    </div>
+    <div class="w-50 text-md-right">
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+<% end %>

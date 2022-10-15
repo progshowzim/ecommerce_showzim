@@ -1,0 +1,31 @@
+<%= simple_form_for(resource, html: { class: 'login-form'}, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="text-center">
+    <%= f.error_notification %>
+  </div>
+
+  <%= f.input :reset_password_token, as: :hidden %>
+  <%= f.full_error :reset_password_token %>
+
+  <div class="form-inputs">
+    <%= f.input :password,
+                label: "New password",
+                required: true,
+                autofocus: true,
+                label: false,
+                placeholder: "senha no mínimo de #{@minimum_password_length} caracteres",
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
+                label: false,
+                placeholder: 'Confirmar senha',
+                required: true,
+                input_html: { autocomplete: "new-password" } %>
+  </div>
+
+  <%= render 'devise/shared/button_submit', f: f, text: 'Alterar senha' %>
+<% end %>
+
+<div class="form-group d-md-flex">
+  <div class="w-100 text-md-right">
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
