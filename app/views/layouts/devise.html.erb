@@ -28,6 +28,7 @@
                 <span class="fa fa-user-o"></span>
               </div>
               <h3 class="text-center mb-4">Login</h3>
+              <%= render 'layouts/shared/flash' if flash.present? %>
               <%= yield %>
             </div>
           </div>
