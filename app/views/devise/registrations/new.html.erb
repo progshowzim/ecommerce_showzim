@@ -1,9 +1,12 @@
 <%= simple_form_for(resource, html: { class: 'login-form'}, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <div class="text-center">
     <%= f.error_notification %>
+    <%= render 'devise/shared/error_messages' %>
   </div>
 
   <div class="form-inputs">
+    <%= f.input :name, label: false, placeholder: 'Nome' %>
+    <%= f.input :phone, label: false, placeholder: 'Telefone' %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
