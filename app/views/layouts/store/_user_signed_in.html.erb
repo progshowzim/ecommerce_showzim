@@ -1,0 +1,12 @@
+<% if user_signed_in? %>
+  <li class="nav-item">
+    <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "nav-link"  %>
+  </li>
+<% else %>
+  <li class="nav-item">
+    <%= link_to "Cadastre-se", new_user_registration_path, method: :delete, class: "nav-link"  %>
+  </li>
+  <li class="nav-item">
+    <%= link_to "Entrar", new_user_session_path, method: :delete, class: "nav-link"  %>
+  </li>
+<% end %>
