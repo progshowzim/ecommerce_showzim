@@ -8,11 +8,13 @@
     "bootstrap": "^5.2.1",
     "bootstrap-icons": "^1.9.1",
     "esbuild": "^0.15.10",
+    "jquery": "^3.6.1",
     "sass": "^1.55.0"
   },
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets",
     "build:css": "sass ./app/assets/stylesheets/application.bootstrap.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
-    "build:css:devise": "sass ./app/assets/stylesheets/devise.scss:./app/assets/builds/devise.css --no-source-map --load-path=node_modules"
+    "build:css:devise": "sass ./app/assets/stylesheets/devise.scss:./app/assets/builds/devise.css --no-source-map --load-path=node_modules",
+    "build:css:admin": "sass ./app/assets/stylesheets/admin.scss:./app/assets/builds/admin.css --no-source-map --load-path=node_modules"
   }
 }
