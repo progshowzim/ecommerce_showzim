@@ -33,3 +33,4 @@ https://startbootstrap.com/template/shop-item
 https://colorlib.com/wp/template/login-form-11/
 
 # modelagem
+https://dbdiagram.io/d/63645030c9abfc611170313f
