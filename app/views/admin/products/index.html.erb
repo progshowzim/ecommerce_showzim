@@ -24,7 +24,7 @@
                   <td>
                     <%= link_to "Detalhes", admin_product_path(product), class: 'btn btn-dark' %>
                     <%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-warning' %>
-                    <%= button_to "Excluir", admin_product_path(product), method: :delete, class: 'btn btn-danger', data: {turbo: false} %>
+                    <%= link_to "Excluir", admin_product_path(product), method: :delete, class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: 'Deseja realmente exlcuir?'} %>
                   </td>
               </tr>
             <% end %>

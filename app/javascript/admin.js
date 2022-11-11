@@ -3,6 +3,6 @@ import "@hotwired/turbo-rails"
 import "./controllers"
 import "./jquery"
 import * as bootstrap from "bootstrap"
-Turbo.session.drive = false
+// Turbo.session.drive = false
 import "./sbadmin/sbadmin.js"
 import "./sbadmin/jquery-easing/jquery.easing.min.js"
