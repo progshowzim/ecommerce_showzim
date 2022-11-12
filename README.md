@@ -11,6 +11,7 @@ Ruby: 3.1.2
 Rails 7.0.2
 Node: 16+
 Yarn: 1.22+
+Libvips: https://installati.one/ubuntu/20.04/libvips-dev/
 
 Siga os passos abaixo para configurar o sistema no seu computador.
 1. Instalar todas as dependências assets: `yarn install`
