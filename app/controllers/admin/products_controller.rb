@@ -10,6 +10,10 @@ module Admin
 
     def new
       @product = Product.new
+      authorize @product
+    rescue Pundit::NotAuthorizedError
+      flash[:notice] = 'Você só pode cadastrar um produto se tiver uma categoria criada.'
+      redirect_to action: :index
     end
 
     def show; end
