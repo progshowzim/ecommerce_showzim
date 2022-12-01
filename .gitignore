@@ -44,3 +44,5 @@
 
 coverage
 /bin/*
+
+yarn-error.log

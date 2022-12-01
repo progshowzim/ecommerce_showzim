@@ -6,7 +6,7 @@
 
   <div class="form-inputs">
     <%= f.input :name, label: false, placeholder: 'Nome' %>
-    <%= f.input :phone, label: false, placeholder: 'Telefone' %>
+    <%= f.input :phone, input_html:{ class: "mask-phone" }, label: false, placeholder: 'Telefone' %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
