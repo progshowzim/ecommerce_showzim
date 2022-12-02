@@ -23,7 +23,7 @@
                   <td><%= product.publish %></td>
                   <td>
                     <%= link_to "Detalhes", admin_product_path(product), class: 'btn btn-dark' %>
-                    <%= link_to "Editar", edit_admin_product_path(product), class: 'btn btn-warning' %>
+                    <%= link_to "Editar", edit_admin_product_path(product), data: { controller: 'admin-modal' }, class: 'btn btn-warning' %>
                     <%= link_to "Excluir", admin_product_path(product), method: :delete, class: 'btn btn-danger', data: {turbo_method: :delete, turbo_confirm: 'Deseja realmente exlcuir?'} %>
                   </td>
               </tr>
@@ -31,7 +31,7 @@
           </tbody>
         </table>
 
-        <%= link_to "Novo produto", new_admin_product_path, class: 'btn btn-primary' %>
+        <%= link_to "Novo produto", new_admin_product_path, data: { controller: 'admin-modal' }, class: 'btn btn-primary' %>
       </div>
     </div>
   </div>
