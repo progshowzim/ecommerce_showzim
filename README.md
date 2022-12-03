@@ -32,6 +32,7 @@ https://whimsical.com/e-commerce-showzim-LzJQQLaeREuubiZSkCMmC5
 https://startbootstrap.com/template/shop-homepage
 https://startbootstrap.com/template/shop-item
 https://colorlib.com/wp/template/login-form-11/
+Design do perfil - https://cdn.dribbble.com/users/5015889/screenshots/14032312/media/90a535d6824b058c0476f0324ee7ae9c.png
 
 # modelagem
 https://dbdiagram.io/d/63645030c9abfc611170313f
