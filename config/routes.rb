@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root to: 'home#index'
+  resources :settings, only: [:index]
 
   namespace :admin do
     root to: 'home#index'
