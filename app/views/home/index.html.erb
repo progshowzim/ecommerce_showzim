@@ -13,6 +13,9 @@
       <% @products.each do |product| %>
         <div class="col mb-5">
           <div class="card h-100">
+            <% if product.promo? %>
+              <div class="badge bg-danger text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Promo</div>
+            <% end %>
             <!-- Product image-->
             <%= image_tag product.image.variant(:thumb), class: 'card-img-top' %>
             <!-- Product details-->
@@ -21,7 +24,12 @@
                 <!-- Product name-->
                 <h5 class="fw-bolder"><%= product.name %></h5>
                 <!-- Product price-->
-                <%= number_to_currency product.price %>
+                <% if product.promo? %>
+                  <span class="text-muted text-decoration-line-through"><%= number_to_currency product.price %></span>
+                  <%= number_to_currency product.promo_price %>
+                <% else %>
+                  <%= number_to_currency product.price %>
+                <% end %>
               </div>
             </div>
             <!-- Product actions-->
