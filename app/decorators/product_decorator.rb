@@ -1,9 +1,10 @@
 class ProductDecorator < SimpleDelegator
   include ActionView::Helpers::NumberHelper
+  include ActionView::Helpers::TagHelper
   
   def price
-    return number_to_currency(super) unless promo?
+    return content_tag(:span, number_to_currency(super), class: "text-muted text-decoration-line-through") + " #{number_to_currency(promo_price)}" if promo?
 
-    "<span class=\"text-muted text-decoration-line-through\">#{number_to_currency(super)}</span> #{number_to_currency(promo_price)}".html_safe
+    number_to_currency(super)
   end
 end
