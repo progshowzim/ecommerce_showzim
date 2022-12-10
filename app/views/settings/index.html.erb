@@ -17,12 +17,13 @@
       <div class="col-9">
         <div class="card">
           <div class="card-body">
+            <%= render 'layouts/shared/flash' if flash.present? %>
             <h2><%= current_user.name %></h2>
             <%= image_tag "profile", width: 120, class: 'mb-4' %>
-            <%= simple_form_for current_user, url: '#' do |f| %>
+            <%= simple_form_for current_user, url: update_user_settings_path, data: { turbo: false } do |f| %>
               <%= f.input :email, readonly: true %>
               <%= f.input :name %>
-              <%= f.input :phone %>
+              <%= f.input :phone, input_html: { class: 'mask-phone' } %>
               <%= f.button :submit, "Atualizar", class: 'btn btn-primary mt-4' %>
             <% end %>
           </div>
