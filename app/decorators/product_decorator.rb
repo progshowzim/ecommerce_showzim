@@ -1,9 +1,9 @@
 class ProductDecorator < SimpleDelegator
-  def full_promo
-    if promo?
-      "<span class=\"text-muted text-decoration-line-through\">#{ActionController::Base.helpers.number_to_currency price}</span> #{ActionController::Base.helpers.number_to_currency promo_price}".html_safe
-    else
-      ActionController::Base.helpers.number_to_currency price
-    end
+  include ActionView::Helpers::NumberHelper
+  
+  def price
+    return number_to_currency(super) unless promo?
+
+    "<span class=\"text-muted text-decoration-line-through\">#{number_to_currency(super)}</span> #{number_to_currency(promo_price)}".html_safe
   end
 end
