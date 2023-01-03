@@ -15,7 +15,20 @@ FileUtils.chdir APP_ROOT do
 
   puts "== Installing dependencies =="
   system! "gem install bundler --conservative"
-  system("bundle check") || system!("bundle install")
+  system!("bundle install")
+
+  unless File.exist?('.env')
+    puts '== Setup .env file =='
+    puts "=== Digite o usuario do banco de dados ==="
+    database_username = gets
+    puts "=== Digite a senha do usuario do banco de dados ==="
+    database_password = gets
+
+    File.open('.env', 'w+') do |file|
+      file.puts "POSTGRES_USERNAME=#{database_username}"
+      file.puts "POSTGRES_PASSWORD=#{database_password}"
+    end
+  end
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
