@@ -36,3 +36,70 @@ Design do perfil - https://cdn.dribbble.com/users/5015889/screenshots/14032312/m
 
 # modelagem
 https://dbdiagram.io/d/63645030c9abfc611170313f
+
+### Usando com docker
+
+1. Create file `.env` and `env.test` off file `.env.sample`.
+
+2. Add values in the variables empties
+
+3. Add value below on file `.env`
+
+```yml
+DATABASE_URL=postgres://postgres:postgres@db:5432/projeto_development
+```
+
+4. Add value below on file `.env.test`
+
+```yml
+DATABASE_URL=postgres://postgres:postgres@db:5432/projeto_test
+```
+
+5. Create file `.env.sidekiq` and add values below:
+```
+REDIS_URL=redis://redis:6379/0
+SIDEKIQ_WORKERS=5
+DATABASE_URL=postgres://postgres:postgres@db:5432/projeto_development
+```
+6. Execute the command below for build image
+```
+docker-compose up -d --no-deps --build app
+```
+7. Execute the command below for start project
+```
+docker compose up -d
+```
+8. Execute the command below for access bash
+```
+docker compose run --rm app bash
+```
+9. Execute the command below for create database
+```
+rails db:create
+```
+10. Execute the command below for migration database
+```
+rails db:migrate
+```
+11. Execute the command below for populate database
+```
+rails db:seed
+```
+
+# Command extras
+Reset stats sidekiq
+```
+Sidekiq::Stats.new.reset
+```
+For the test rspec, execute the command below
+```
+ENV_FILE=.env.test docker compose run --rm app rspec
+```
+For execute rubocop
+```
+docker compose run --rm app rubocop
+```
+For debug with binding.pry
+```
+docker attach --detach-keys="ctrl-c" <id_do_container_app>
+```

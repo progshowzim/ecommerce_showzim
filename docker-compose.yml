@@ -1,0 +1,49 @@
+version: "2"
+
+services:
+  app:
+    build:
+      context: .
+    image: ecommerce_prog
+    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
+    volumes:
+      - .:/app
+      - projeto_bundle:/usr/local/bundle
+    ports:
+      - 3000:3000
+    networks:
+      - ecommerce_prog_network
+    stdin_open: true
+    tty: true
+    env_file:
+      - ${ENV_FILE:-.env}
+    depends_on:
+      - db
+
+  db:
+    image: postgres
+    container_name: ecommerce_prog_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - ecommerce_prog_network
+
+  mailcatcher:
+    image: dockage/mailcatcher:0.8.2
+    restart: on-failure
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+volumes:
+  pg_data:
+  projeto_bundle:
+
+networks:
+  ecommerce_prog_network:
+    name: ecommerce_prog_network

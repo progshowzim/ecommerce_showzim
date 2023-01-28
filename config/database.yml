@@ -1,19 +1,17 @@
 default: &default
   adapter: postgresql
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   encoding: unicode
-  host: localhost
-  username: dev
-  password: progshowzim
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  url: <%= ENV["DATABASE_URL"] %>
 
 development:
   <<: *default
-  database: ecommerce_development
 
 test:
   <<: *default
-  database: ecommerce_test
+
+homolog:
+  <<: *default
 
 production:
   <<: *default
-  database: ecommerce_production
