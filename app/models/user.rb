@@ -6,5 +6,7 @@ class User < ApplicationRecord
 
   validates :name, :phone, presence: true
 
+  has_one_attached :avatar
+
   enum role: { user: 'user', admin: 'admin' }
 end
