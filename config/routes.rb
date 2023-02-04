@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
   resources :settings, only: [:index] do
     collection do
+      get :password
       patch :update_user
+      patch :update_password
     end
   end
 
