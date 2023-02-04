@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :addresses
+
   namespace :admin do
     root to: 'home#index'
     resources :categories
