@@ -8,5 +8,7 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  has_many :addresses
+
   enum role: { user: 'user', admin: 'admin' }
 end
