@@ -55,7 +55,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_002530) do
     t.string "zipcode", null: false
     t.string "city", null: false
     t.string "state", null: false
-    t.boolean "main", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
