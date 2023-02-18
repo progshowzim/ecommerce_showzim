@@ -1,0 +1,38 @@
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-3">
+        <div class="card">
+          <%= render 'settings/menu' %>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="card">
+          <div class="card-body">
+            <%= render 'layouts/shared/flash' if flash.present? %>
+            <h2>Novo endereço</h2>
+            <%= simple_form_for @address, data: { turbo:false } do |f| %>
+              <%= f.error_notification %>
+              <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+              <div class="form-inputs">
+                <%= f.input :name, label: 'Nome' %>
+                <%= f.input :street, label: 'Rua' %>
+                <%= f.input :neighborhood, label: 'Bairro' %>
+                <%= f.input :number, label: 'Número' %>
+                <%= f.input :address_detail, label: 'Complemento' %>
+                <%= f.input :zipcode, label: 'CEP' %>
+                <%= f.input :city, label: 'Cidade' %>
+                <%= f.input :state, label: 'Estado' %>
+              </div>
+
+              <div class="form-actions mt-2">
+                <%= f.button :submit, 'Salvar', class: 'btn btn-primary' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

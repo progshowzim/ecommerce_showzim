@@ -11,7 +11,36 @@
           <div class="card-body">
             <%= render 'layouts/shared/flash' if flash.present? %>
             <h2>Meus endereços</h2>
-            LISTA DE ENDEREÇOS
+            <% if @addresses.any? %>
+              <table class="table">
+                <thead>
+                <tr>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Rua</th>
+                  <th scope="col">Bairro</th>
+                  <th scope="col">Número</th>
+                  <th scope="col">Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                <% @addresses.each do |address| %>
+                  <tr>
+                    <td><%= address.name %></td>
+                    <td><%= address.street %></td>
+                    <td><%= address.neighborhood %></td>
+                    <td><%= address.number %></td>
+                    <td>
+                      <%= link_to 'Detalhes', address_path(address), class: 'btn btn-secondary' %>
+                      <%= link_to 'Excluir', address_path(address), method: :delete, class: 'btn btn-danger' %>
+                    </td>
+                  </tr>
+                <% end %>
+                </tbody>
+              </table>
+            <% else %>
+              <h5>Nenhum endereço cadastrado.</h5>
+            <% end %>
+            <%= link_to "Novo endereço", new_address_path, class: 'btn btn-primary' %>
           </div>
         </div>
       </div>
